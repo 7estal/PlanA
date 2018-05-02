@@ -1,6 +1,6 @@
 import React from 'react';
-import { StackNavigator, DrawerNavigator } from 'react-navigation';
-import { HomeScreen } from "../home-screen";
+import { StackNavigator } from 'react-navigation';
+import { HomeScreenContainer as HomeScreen } from "../home-screen";
 
 const stackNavigatorConfigDefault = {
     headerMode: 'none',

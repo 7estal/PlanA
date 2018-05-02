@@ -6,16 +6,17 @@ import { createEpicMiddleware, combineEpics } from 'redux-observable';
 
 import { configureEpicDependencies } from './app-epic.dependency';
 import { appReducers } from "../common/app-model/index.reducer";
+import { commonEpic } from "../common/app-model/index.epic";
 
 const createAppEpic = () => combineEpics(
-
+    commonEpic,
 );
 
 const config = {
     key: 'plan-a-persist',
     storage,
     version: 1,
-    whitelist: ['_persist', ],
+    whitelist: ['_persist'],
     debug: true,
 };
 

@@ -1,36 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component,  } from 'react';
 import {
-    Platform,
+    Image,
     StyleSheet,
-    Text,
-    View
+    StatusBar,
+    TouchableHighlight,
+    View,
 } from 'react-native';
 
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-    android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import { TodoListPanelContainer } from "../component/todo-list";
 
-type Props = {};
-export class HomeScreen extends Component<Props> {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit App.js
-                </Text>
-                <Text style={styles.instructions}>
-                    {instructions}
-                </Text>
-            </View>
-        );
-    }
-}
+export const HomeScreen = ({
+    todoListArray,
+}) => (
+    <View style={styles.container}>
+        <Image source={{uri:"desktop"}} style={styles.container}>
+        </Image>
+        {todoListArray.map(todoList => (
+            <TodoListPanelContainer
+                listId={todoList.id}
+                key={todoList.id}
+            />
+        ))}
+    </View>
+);
 
 const styles = StyleSheet.create({
     container: {
