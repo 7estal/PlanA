@@ -9,8 +9,10 @@ const { store, persistor} = configureStore();
 export const dispatchInitActions = dispatch => {
     const hasDefaultTodoList = !!store.getState().todo.todoLists;
     if (!hasDefaultTodoList) {
-        const listName = 'Default';
-        dispatch(todoActions.addTodoList(listName));
+        const defaultListProps = {
+            name: 'Default',
+        };
+        dispatch(todoActions.addTodoList(defaultListProps));
     }
     // dispatch(commonActions.appInit());
 };

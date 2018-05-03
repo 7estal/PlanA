@@ -46,7 +46,7 @@ export class AddTodoPanel extends Component {
                                onBlur={ event => {
                                    addTodo({
                                        listId,
-                                       itemName: event.nativeEvent.text,
+                                       name: event.nativeEvent.text,
                                    });
                                    this.refs.textInput.clear();
                                }}

@@ -8,7 +8,6 @@ import {
 import { styles } from "./todo-list-panel.styles";
 import { AddTodoPanel, TodoItemView } from "./todo-item/todo-item-view.component";
 import type { TodoItem } from "../../common/app-model/todo/todo.reducer";
-import {addTodo} from "../../common/app-model/todo/todo.action";
 
 type TodoListProps = {
     listName: string,
@@ -36,7 +35,7 @@ export const TodoListPanel = ({
             <View style={styles.reminderListContainer}>
                 {todoItemArray.map(todo => (
                     <TodoItemView
-                        text={todo.title}
+                        text={todo.name}
                         selected={todo.completed}
                         key={todo.id}
                     />

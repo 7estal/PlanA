@@ -4,12 +4,13 @@ import { todoActions } from "../../common/app-model/todo";
 import { convertMapToArray } from "../../common/shared/utils";
 
 const mapStateToProps = (state, ownProps) => {
-    const todoList = state.todo.todoLists[ownProps.listId];
+    const todoListData = state.todo.todoListData[ownProps.listId];
+    const todoItems = state.todo.todoItemsByListId[ownProps.listId] || {};
     return {
-        listId: todoList.id,
-        listName: todoList.name,
-        themeColor: todoList.themeColor,
-        todoItemArray: convertMapToArray(todoList.todoItems),
+        listId: todoListData.id,
+        listName: todoListData.name,
+        themeColor: todoListData.themeColor,
+        todoItemArray: convertMapToArray(todoItems),
     };
 };
 

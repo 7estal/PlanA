@@ -10,12 +10,13 @@ import {
 import { TodoListPanelContainer } from "../component/todo-list";
 
 export const HomeScreen = ({
-    todoListArray,
+   todoListDataArray,
+   todoItemsByListId,
 }) => (
     <View style={styles.container}>
         <Image source={{uri:"desktop"}} style={styles.container}>
         </Image>
-        {todoListArray.map(todoList => (
+        {todoListDataArray.map(todoList => (
             <TodoListPanelContainer
                 listId={todoList.id}
                 key={todoList.id}
