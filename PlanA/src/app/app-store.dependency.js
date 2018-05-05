@@ -1,15 +1,19 @@
 import { persistStore, persistCombineReducers } from 'redux-persist';
 import storage from 'redux-persist/es/storage';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createEpicMiddleware, combineEpics } from 'redux-observable';
 
 import { configureEpicDependencies } from './app-epic.dependency';
 import { appReducers } from "../common/app-model/index.reducer";
-import { commonEpic } from "../common/app-model/index.epic";
+import {
+    commonEpic,
+    todoEpic,
+} from "../common/app-model/index.epic";
 
 const createAppEpic = () => combineEpics(
     commonEpic,
+    todoEpic,
 );
 
 const config = {

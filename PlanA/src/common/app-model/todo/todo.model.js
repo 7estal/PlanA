@@ -1,24 +1,25 @@
 import { generateUniqueId } from "../../shared/utils";
+import { ORANGE } from "../../shared/color";
 
-export type CreateTodoListProps = {
-    name: string,
-    themeColor: ?string,
-};
+export const todoListPropsCreator = (name, themeColor) => ({
+    name,
+    themeColor,
+});
 
-export function TodoListModel(todoListProps: CreateTodoListProps) {
+export function TodoListModel(todoListProps) {
     const { name, themeColor } = todoListProps;
     this.id = generateUniqueId();
     this.name = name;
-    this.themeColor = themeColor || '#fe952b';
+    this.themeColor = themeColor || ORANGE;
     this.deleted = false;
 };
 
-export type CreateTodoProps = {
-    name: string,
-    listId: string,
-};
+export const todoPropsCreator = (name, listId) => ({
+    name,
+    listId,
+});
 
-export function TodoItemModel(todoProps: CreateTodoProps) {
+export function TodoItemModel(todoProps) {
     const { name, listId } = todoProps;
     this.id = generateUniqueId();
     this.name = name;

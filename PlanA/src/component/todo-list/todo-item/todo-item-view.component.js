@@ -7,6 +7,7 @@ import {
     View
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { todoPropsCreator } from "../../../common/app-model/todo/todo.model";
 
 export const TodoItemView = ({
     text,
@@ -44,10 +45,8 @@ export class AddTodoPanel extends Component {
                     <TextInput autoCapitalize='none'
                                ref='textInput'
                                onBlur={ event => {
-                                   addTodo({
-                                       listId,
-                                       name: event.nativeEvent.text,
-                                   });
+                                    const todoName = event.nativeEvent.text;
+                                   addTodo(todoPropsCreator(todoName, listId));
                                    this.refs.textInput.clear();
                                }}
                                style={styles.inputText}

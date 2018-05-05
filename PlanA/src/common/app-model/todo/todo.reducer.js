@@ -2,20 +2,24 @@
 
 import { combineReducers } from 'redux';
 import { TODO_ACTION } from "./todo.action";
-import { TodoListModel, TodoItemModel } from "./todo.model";
+
+const initialized = (state = false, action) => {
+    switch (action.type) {
+        case TODO_ACTION.ADD_DEFAULT_TODO_LIST:
+            return true;
+        default:
+            return state;
+    }
+};
 
 const todoListData = (state = {}, action) => {
-
     switch (action.type) {
         case TODO_ACTION.ADD_TODO_LIST:
-            const todoListProps = action.payload;
-            const newList = new TodoListModel(todoListProps);
+            const newList = action.payload;
             return {
                 ...state,
                 [newList.id]: newList,
             };
-
-
         default:
             return state;
     }
@@ -24,11 +28,15 @@ const todoListData = (state = {}, action) => {
 
 const todoItemsByListId = (state = {}, action) => {
     switch (action.type) {
-
+        case TODO_ACTION.ADD_TODO_LIST:
+            const newList = action.payload;
+            return {
+                ...state,
+                [newList.id]: {},
+            };
         case TODO_ACTION.ADD_TODO:
-            const todoProps = action.payload;
-            const newTodo = new TodoItemModel(todoProps);
-            const todoItemsMap = state[newTodo.listId] || {};
+            const newTodo = action.payload;
+            const todoItemsMap = state[newTodo.listId];
             const newTodoItemsMap = {
                 ...todoItemsMap,
                 [newTodo.id]: newTodo,
@@ -45,6 +53,7 @@ const todoItemsByListId = (state = {}, action) => {
 };
 
 export const todo = combineReducers({
+    initialized,
     todoListData,
     todoItemsByListId,
 });
