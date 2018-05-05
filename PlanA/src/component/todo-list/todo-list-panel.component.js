@@ -7,14 +7,6 @@ import {
 } from 'react-native';
 import { styles } from "./todo-list-panel.styles";
 import { AddTodoPanel, TodoItemView } from "./todo-item/todo-item-view.component";
-import type { TodoItem } from "../../common/app-model/todo/todo.reducer";
-
-type TodoListProps = {
-    listName: string,
-    themeColor: string,
-    todoItemArray: Array<TodoItem>,
-    addTodo: Function,
-};
 
 export const TodoListPanel = ({
     listId,
@@ -22,11 +14,14 @@ export const TodoListPanel = ({
     themeColor,
     todoItemArray,
     addTodo,
-}: TodoListProps) => (
-    <View style={[styles.reminderContainer]}>
+    listStyle,
+    onPress,
+}) => (
+    <View style={[styles.reminderContainer, listStyle]}>
         {/*<Image style={styles.reminderBg} source={{uri:"packed"}}/>*/}
         <View style={styles.reminderContent}>
-            <TouchableHighlight underlayColor="transparent">
+            <TouchableHighlight underlayColor='transparent'
+                                onPress={onPress}>
                 <View style={styles.reminderTitleContainer}>
                     <Text style={[styles.reminderTitle, {color: themeColor}]}>{listName}</Text>
                     {/*<Text style={[styles.reminderTitle, {color: themeColor}]}>{todoList.length}</Text>*/}

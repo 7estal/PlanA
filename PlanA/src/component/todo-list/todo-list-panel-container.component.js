@@ -7,6 +7,7 @@ const mapStateToProps = (state, ownProps) => {
     const todoListData = state.todo.todoListData[ownProps.listId];
     const todoItems = state.todo.todoItemsByListId[ownProps.listId] || {};
     return {
+        ...ownProps,
         listId: todoListData.id,
         listName: todoListData.name,
         themeColor: todoListData.themeColor,
