@@ -7,7 +7,7 @@ const ADD_TODO = 'todo/ADD_TODO';
 const ADD_TODO_LIST = 'todo/ADD_TODO_LIST';
 const ADD_DEFAULT_TODO_LIST = 'todo/ADD_DEFAULT_TODO_LIST';
 
-const TOGGLE_TODO_STATUS = 'todo/TOGGLE_TODO_STATUS';
+const TOGGLE_TODO = 'todo/TOGGLE_TODO';
 
 export const createTodo = createPayloadActionCreator(CREATE_TODO);
 export const createTodoList = createPayloadActionCreator(CREATE_TODO_LIST);
@@ -16,7 +16,7 @@ export const addTodo = createPayloadActionCreator(ADD_TODO);
 export const addTodoList = createPayloadActionCreator(ADD_TODO_LIST);
 export const addDefaultTodoList = createPayloadActionCreator(ADD_DEFAULT_TODO_LIST);
 
-export const toggleTodoStatus = createPayloadActionCreator(TOGGLE_TODO_STATUS);
+export const toggleTodo = createPayloadActionCreator(TOGGLE_TODO);
 
 export const todoActions = {
     addTodo,
@@ -24,7 +24,7 @@ export const todoActions = {
     addDefaultTodoList,
     createTodo,
     createTodoList,
-    toggleTodoStatus,
+    toggleTodo,
 };
 
 export const TODO_ACTION = {
@@ -33,5 +33,5 @@ export const TODO_ACTION = {
     ADD_DEFAULT_TODO_LIST,
     CREATE_TODO,
     CREATE_TODO_LIST,
-    TOGGLE_TODO_STATUS,
+    TOGGLE_TODO,
 };

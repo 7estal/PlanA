@@ -1,27 +1,29 @@
 import React, { Component } from 'react';
 import {
-    Dimensions,Button,
+    Dimensions,
     TextInput,
     TouchableHighlight,
     StyleSheet,
     View
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { todoPropsCreator } from "../../../common/app-model/todo/todo.model";
+import { todoItemProps, toggleTodoProps } from "../../../common/app-model/todo/todo.model";
 
 export const TodoItemView = ({
     text,
     selected,
     themeColor,
     onPress,
-    addTodo,
+    toggleTodo,
+    listId,
+    itemIndex,
 }) => (
-    <View style={[ styles.reminderList, {opacity: selected ? 0.5 : 1}]}>
+    <View style={[styles.reminderList, {opacity: selected ? 0.5 : 1}]}>
         <TouchableHighlight
             underlayColor='transparent'
-            style={[ styles.check, {borderColor: selected ? themeColor : "#c6c6c6"}]}
-            onPress = {onPress}>
-            <View style={selected ? [ styles.fill , {backgroundColor: themeColor}] : null}/>
+            style={[styles.check, {borderColor: selected ? themeColor : "#c6c6c6"}]}
+            onPress = {() => toggleTodo(toggleTodoProps(listId, itemIndex))}>
+            <View style={selected ? [styles.fill , {backgroundColor: themeColor}] : null}/>
         </TouchableHighlight>
         <View style={styles.input}>
             <TextInput defaultValue={text} style={styles.inputText}/>
@@ -46,7 +48,7 @@ export class AddTodoPanel extends Component {
                                ref='textInput'
                                onBlur={ event => {
                                     const todoName = event.nativeEvent.text;
-                                   addTodo(todoPropsCreator(todoName, listId));
+                                   addTodo(todoItemProps(todoName, listId));
                                    this.refs.textInput.clear();
                                }}
                                style={styles.inputText}

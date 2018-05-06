@@ -14,6 +14,7 @@ export const TodoListPanel = ({
     themeColor,
     todoItemArray,
     addTodo,
+    toggleTodo,
     listStyle,
     onPress,
 }) => (
@@ -30,9 +31,13 @@ export const TodoListPanel = ({
             <View style={styles.reminderListContainer}>
                 {todoItemArray.map(todo => (
                     <TodoItemView
+                        key={todo.id}
                         text={todo.name}
                         selected={todo.completed}
-                        key={todo.id}
+                        itemIndex={todo.itemIndex}
+                        listId={listId}
+                        themeColor={themeColor}
+                        toggleTodo={toggleTodo}
                     />
                 ))}
                 <AddTodoPanel

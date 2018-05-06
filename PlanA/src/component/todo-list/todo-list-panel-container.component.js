@@ -5,20 +5,20 @@ import { convertMapToArray } from "../../common/shared/utils";
 
 const mapStateToProps = (state, ownProps) => {
     const todoListData = state.todo.todoListData[ownProps.listId];
-    const todoItems = state.todo.todoItemsByListId[ownProps.listId] || {};
+    const todoItemArray = state.todo.todoItemsByListId[ownProps.listId];
     return {
         ...ownProps,
         listId: todoListData.id,
         listName: todoListData.name,
         themeColor: todoListData.themeColor,
-        todoItemArray: convertMapToArray(todoItems),
+        todoItemArray,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addTodo: (todoItem) => dispatch(todoActions.addTodo(todoItem)),
-        toggleTodoStatus: (todoId) => dispatch(todoActions.toggleTodoStatus(todoId)),
+        addTodo: (todoItem) => dispatch(todoActions.createTodo(todoItem)),
+        toggleTodo: (togoTodoProps) => dispatch(todoActions.toggleTodo(togoTodoProps)),
     };
 };
 

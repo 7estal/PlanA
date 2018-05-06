@@ -32,21 +32,27 @@ const todoItemsByListId = (state = {}, action) => {
             const newList = action.payload;
             return {
                 ...state,
-                [newList.id]: {},
+                [newList.id]: [],
             };
         case TODO_ACTION.ADD_TODO:
             const newTodo = action.payload;
-            const todoItemsMap = state[newTodo.listId];
-            const newTodoItemsMap = {
-                ...todoItemsMap,
-                [newTodo.id]: newTodo,
-            };
+            state[newTodo.listId].push(newTodo);
             return {
                 ...state,
-                [newTodo.listId]: newTodoItemsMap,
+                [newTodo.listId]: state[newTodo.listId],
             };
-
-
+        case TODO_ACTION.TOGGLE_TODO:
+            const { listId, itemIndex } = action.payload;
+            const todo = state[listId][itemIndex];
+            const updatedTodo = {
+                ...todo,
+                completed: !todo.completed,
+            };
+            state[listId][itemIndex] = updatedTodo;
+            return {
+                ...state,
+                [listId]: state[listId],
+            };
         default:
             return state;
     }
