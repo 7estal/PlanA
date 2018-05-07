@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { HomeScreen } from './home-screen.component';
-import { todoActions } from "../common/app-model/todo";
-import { convertMapToArray } from "../common/shared/utils";
+import { todoActions } from "../app-model/todo";
+import { convertMapToArray } from "../shared/utils";
 
 const mapStateToProps = (state) => {
     return {

@@ -7,8 +7,8 @@ import {
     TouchableHighlight,
     View,
 } from 'react-native';
-import { screenWidth, screenHeight } from "../common/shared/utils";
-import { TodoListPanelContainer } from "../component/todo-list";
+import { screenWidth, screenHeight } from "../shared/utils";
+import { TodoListPanelContainer } from "../ui/component/todo-list";
 
 export class HomeScreen extends Component {
     constructor() {

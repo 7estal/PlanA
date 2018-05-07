@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { TodoListPanel } from "./todo-list-panel.component";
-import { todoActions } from "../../common/app-model/todo";
-import { convertMapToArray } from "../../common/shared/utils";
+import { todoActions } from "../../../app-model/todo/index";
+import { convertMapToArray } from "../../../shared/utils";
 
 const mapStateToProps = (state, ownProps) => {
     const todoListData = state.todo.todoListData[ownProps.listId];

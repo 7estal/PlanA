@@ -1,4 +1,4 @@
-import { configureApiServices } from '../common/api';
+import { configureApiServices } from '../api';
 
 export const configureEpicDependencies = () => ({
     ...configureApiServices(),

@@ -1,7 +1,7 @@
 import React from 'react';
 import { App } from './app.component';
 import { configureStore } from './app-store.dependency';
-import { commonActions } from "../common/app-model/common/common.action";
+import { commonActions } from "../app-model/common/common.action";
 
 const { store, persistor } = configureStore();
 

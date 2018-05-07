@@ -5,11 +5,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { createEpicMiddleware, combineEpics } from 'redux-observable';
 
 import { configureEpicDependencies } from './app-epic.dependency';
-import { appReducers } from "../common/app-model/index.reducer";
+import { appReducers } from "../app-model/index.reducer";
 import {
     commonEpic,
     todoEpic,
-} from "../common/app-model/index.epic";
+} from "../app-model/index.epic";
 
 const createAppEpic = () => combineEpics(
     commonEpic,

@@ -7,7 +7,7 @@ import {
     View
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { todoItemProps, toggleTodoProps } from "../../../common/app-model/todo/todo.model";
+import { todoItemProps, toggleTodoProps } from "../../../../app-model/todo/todo.model";
 
 export const TodoItemView = ({
     text,

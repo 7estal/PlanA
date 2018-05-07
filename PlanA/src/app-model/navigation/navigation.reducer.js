@@ -1,4 +1,4 @@
-import { AppNavigator } from '../../../app-navigator';
+import { AppNavigator } from '../../ui/app-navigator/index';
 
 const initialState = AppNavigator.router.getStateForAction(
     AppNavigator.router.getActionForPathAndParams('Home')
