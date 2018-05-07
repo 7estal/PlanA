@@ -20,7 +20,7 @@ const config = {
     key: 'plan-a-persist',
     storage,
     version: 1,
-    whitelist: ['_persist'],
+    whitelist: ['_persist', 'todo'],
     debug: true,
 };
 

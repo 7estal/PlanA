@@ -6,8 +6,8 @@ export const screenHeight = height;
 
 export const generateUniqueId = () => {
     const currentMilliseconds = Date.now();
-    const random = Math.floor(Math.random() * 100);
-    return currentMilliseconds + '' + random;
+    const fourDigitRandom = Math.floor(Math.random() * 9000 + 1000);
+    return currentMilliseconds + '' + fourDigitRandom;
 };
 
 export const convertMapToArray = (map) => Object.keys(map).map(key => map[key]);

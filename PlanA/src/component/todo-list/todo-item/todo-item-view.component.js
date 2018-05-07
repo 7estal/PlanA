@@ -32,8 +32,15 @@ export const TodoItemView = ({
 );
 
 export class AddTodoPanel extends Component {
-    render() {
+    createTodo(text) {
         const { listId, addTodo } = this.props;
+        if (!!text) {
+            const todoName = text;
+            addTodo(todoItemProps(todoName, listId));
+            this.refs.textInput.clear();
+        }
+    }
+    render() {
         return (
             <View style={styles.reminderList}>
                 <View style={styles.add}>
@@ -46,11 +53,7 @@ export class AddTodoPanel extends Component {
                 <View style={styles.input}>
                     <TextInput autoCapitalize='none'
                                ref='textInput'
-                               onBlur={ event => {
-                                    const todoName = event.nativeEvent.text;
-                                   addTodo(todoItemProps(todoName, listId));
-                                   this.refs.textInput.clear();
-                               }}
+                               onBlur={event => this.createTodo(event.nativeEvent.text)}
                                style={styles.inputText}
                     />
                 </View>
