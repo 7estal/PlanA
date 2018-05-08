@@ -53,7 +53,7 @@ When user performed some change, the component will dispatch an action. Depends 
 
 When the state is updated, React will rerender the component with the new props.
 
-##Project File Structure
+## Project File Structure
 
 ```
 index.js	(Entry file)
@@ -93,7 +93,7 @@ export function TodoListModel(todoListProps) {
 };
 ```
 
-In the `TodoItemModel` every Todo Item includes the listId it belongs to, and its itemId in the list. The ``${listId}#${itemIndex}` becomes the unique id of the Todo Item.
+In the `TodoItemModel` every Todo Item includes the listId it belongs to, and its itemId in the list. The `${listId}#${itemIndex}` becomes the unique id of the Todo Item.
 
 ```javascript
 const TODO_ID_SEPARATOR = '#';
@@ -115,7 +115,7 @@ Therefore, we have two sub slice in the todo state slice.
 - The `todoListData` stores all the data of the `TodoListModel`, this state will only change when user created a new TodoList.
 - The `todoItemsByListId` stores the `TodoItemModel` by their `listId`. When user would like to change a Todo, we need to find the `TodoItemModel` quickly in the state tree. Therefore we set the `listId` as a kind of index of the TodoItem, and make the `todoItemsByListId` as a Map inwhich the `listId` are the keys instead of as a Array.
 
-```json
+```
 {
     todo: {
         todoListData: {
