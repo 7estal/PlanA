@@ -15,8 +15,6 @@ This project uses libraries and tools below:
 - [RxJS](http://reactivex.io/rxjs/) for asynchronous event handling
 - [React-Navigation](https://reactnavigation.org/) for App Navigation
 
-
-
 ## Install and Run
 
 ```sh
@@ -26,14 +24,6 @@ $ yarn install or npm install
 $ react-native run-ios or react-native run-android
 ```
 
-
-## Debug
-
-For debugging the standalone app [React Native Debugger](https://github.com/jhen0409/react-native-debugger) is recommended. It already includes [React DevTools](https://github.com/facebook/react-devtools) and [Redux DevTools](https://github.com/gaearon/redux-devtools).
-
-Screenshot of the React Native Debugger below shows the state tree of the Todo App.
-
-![Screenshot 1](./docs/state-tree.png) 
 
 ## Architecture and Data Flow
 
@@ -70,7 +60,7 @@ src/
 		├── todo.reducer.js		(State Tree Todo Slice Definition)
 ├── home-screen/
 	├── home-screen.component.js			(Home Screen Presentational Component)
-	├── home-screen.container.component.js	 (Home Screen Container Component)
+	├── home-screen.container.component.js	 	(Home Screen Container Component)
 ├── ui/
 	├── app-navigator	(Use React-Navigation for App Navigation)
 	├── component		(UI Components)
@@ -144,6 +134,15 @@ Therefore, we have two sub slice in the todo state slice.
     }
 }
 ```
+
+## Debug
+
+For debugging the standalone app [React Native Debugger](https://github.com/jhen0409/react-native-debugger) is recommended. It already includes [React DevTools](https://github.com/facebook/react-devtools) and [Redux DevTools](https://github.com/gaearon/redux-devtools).
+
+Screenshot of the React Native Debugger below shows the state tree of the Todo App.
+
+![Screenshot 1](./docs/state-tree.png) 
+
 
 ## TODO
 
